@@ -237,7 +237,7 @@ I needed a reliable platform to stream my media collection with accurate metadat
 
 #### My Jellyfin Setup
 
-I used [Tteck's Proxmox VE Helper-Scripts](https://tteck.github.io/Proxmox/) to install the LXC (Linux Container) to host Docker. The LXC configuration are as follows:
+I used [Tteck's Proxmox VE Helper-Scripts](https://tteck.github.io/Proxmox/) to install the LXC (Linux Container) to host Jellyfin. While Docker was an option, I opted for LXC due to its advantages in resource efficiency. The LXC configuration are as follows:
 - CPU: 2 cores
 - RAM: 2 GB
 - Root Disk: 8 GB

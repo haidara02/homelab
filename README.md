@@ -290,16 +290,15 @@ While Jellyfin is fairly minimalistic by default, you can significantly enhance 
 
 #### Adding Your Media
 
-If you already have your drive with your media mounted, simply navigate to Dashboard > Libraries and add your media libraries then wait for the scan to finish to view your media. Since I'm using OpenMediaVault as an LXC container for my NAS solution, the configuration for this is quite difficult to go through, so make sure to follow the steps below to setup OpenMediaVault before continuing this section.
+If your drive with the media is already mounted, simply navigate to Dashboard > Libraries and add your media libraries. Wait for the scan to complete, and you'll be able to view your media.
+
+Since I’m running OpenMediaVault as an VM on Proxmox for my NAS solution, the configuration process can be quite complex. Therefore, it's essential to properly set up OpenMediaVault before proceeding with this section.
 
 ---
 
 ### NGINX Proxy Manager
 
-If your drive with the media is already mounted, simply navigate to Dashboard > Libraries and add your media libraries. Wait for the scan to complete, and you'll be able to view your media.
-
-Since I’m running OpenMediaVault as an VM on Proxmox for my NAS solution, the configuration process can be quite complex. Therefore, it's essential to properly set up OpenMediaVault before proceeding with this section.
-
+---
 
 ## Initial networking setup
 

@@ -55,17 +55,17 @@ In order of priority:
 
 Proxmox is a complete open-source server virtualization management solution. Proxmox offers a web interface accessible after installation on your server which makes management easy, usually only needing a few clicks.
 
-### Quick setup guide by Khoi
+#### Quick setup guide by Khoi
 
-#### Requirements
+**Requirements**
 - A secondary device for downloading necessary files
 - An empty USB drive (at least 4 GB)
 - A target device for Proxmox installation with an unpartitioned boot drive
-#### Preparation on a Separate Computer
+**Preparation on a Separate Computer**
 1. Download the latest stable ISO from [Proxmox](https://www.proxmox.com/en/downloads)
 2. Download [Rufus](https://rufus.ie/en/)
 3. Launch Rufus and create a bootable USB drive, selecting the Proxmox ISO as the boot selection.
-#### Installation on the Target Computer
+**Installation on the Target Computer**
 1. Access BIOS – Restart the target device and enter the BIOS/UEFI menu. Set the boot priority to USB and boot from the installation media.
 2. Install Proxmox – Follow the on-screen setup instructions. Be sure to record all configuration details for future reference.
 3. (Optional) Disable Subscription Warning – After installation, navigate to Datacenter > {Device Name} > Updates > Repositories and add a non-subscription repository to remove the startup subscription prompt.
@@ -79,7 +79,7 @@ Proxmox is a complete open-source server virtualization management solution. Pro
 
 Now that Proxmox is set up, we can configure the storage for our NAS. In my setup, I’m using a single 10TB hard drive in a Single-Disk array, but any storage configuration will work based on your needs.
 
-If the data is critical, it is highly recommended to use RAID for redundancy and parity, as this helps protect against drive failures.
+>If the data is critical, it is highly recommended to use RAID for redundancy and parity, as this helps protect against drive failures.
 
 #### Setting Up a Single-Disk Array on Proxmox VE
 
@@ -197,6 +197,7 @@ While Proxmox can manage both virtual machines (VMs) and containers, Docker is o
 #### My Docker Setup
 
 To streamline the setup process, I used [Tteck's Proxmox VE Helper-Scripts](https://tteck.github.io/Proxmox/#docker---kubernetes) to install the LXC (Linux Container) to host Docker. The LXC configuration are as follows:
+
 - CPU: 2 cores
 - RAM: 2 GB
 - Root Disk: 10 GB

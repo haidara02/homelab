@@ -30,11 +30,14 @@ WIP at the moment. Stay tuned!
 - Memory: 16 GB (2 x 8 GB) DDR3-1600 CL10
 - Storage: Patriot P210 256 GB SSD (Boot and LVM Drive) | Seagate Ironwolf 10 TB NAS SATA HDD
 - Case: OEM Micro-ATX case ([specs](https://phoenixtechnologies.es/en/products/caja-de-ordenador-phoenix-micro-atx-lite-s1-formato-slim-con-usb-3-0-fuente-300w-incluida))
-This build is designed to be power-efficient and extremely budget-friendly while delivering solid performance for general server-related tasks.
+
+> This build is designed to be power-efficient and extremely budget-friendly while delivering solid performance for general server-related tasks.
+
 **Estimated power usage:**
 - Light Use: ~40W–80W
 - Moderate Workloads: ~100W–150W
 - Full Load: ~170W–200W
+  
 Most of these components, other than storage, were picked up for $10 AUD at a yard sale.  I specifically chose this setup because the CPU supports [Intel Quick Sync](https://en.wikipedia.org/wiki/Intel_Quick_Sync_Video), which is a dedicated hardware encoder/decoder that speeds up transcoding significantly.
 The SSD comes from my modded PS3, while the hard drive was an absolute steal from eBay at $125 due to a pricing error.
 

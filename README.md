@@ -227,6 +227,14 @@ The IP address will be displayed in the format 192.168.x.x. By default, Portaine
 docker restart portainer
 ```
 
+---
+
+### OpenMediaVault
+
+
+
+---
+
 ### Jellyfin
 
 #### What is Jellyfin and Why use it?
@@ -280,13 +288,17 @@ While Jellyfin is fairly minimalistic by default, you can significantly enhance 
   
 - **Trakt**: Syncs your Jellyfin library with your **Trakt** account, allowing you to track watched content across platforms, manage watchlists, and discover new shows.
 
+#### Adding Your Media
+
+If you already have your drive with your media mounted, simply navigate to Dashboard > Libraries and add your media libraries then wait for the scan to finish to view your media. Since I'm using OpenMediaVault as an LXC container for my NAS solution, the configuration for this is quite difficult to go through, so make sure to follow the steps below to setup OpenMediaVault before continuing this section.
+
 ---
 
 ### NGINX Proxy Manager
 
-### Openmediavault
+If your drive with the media is already mounted, simply navigate to Dashboard > Libraries and add your media libraries. Wait for the scan to complete, and you'll be able to view your media.
 
-For most of the services we're going to setup, we want to have a dedicated or shared "data" folder that they use. For example, where all the nextcloud data goes, where your gitea remote repositories live, etc. There are a few ways to enable that, but here we're going to first make a NAS VM and use "shared folders" and nfs connections to our other services. This way, our storage is more or less managed in one central location.
+Since I’m running OpenMediaVault as an VM on Proxmox for my NAS solution, the configuration process can be quite complex. Therefore, it's essential to properly set up OpenMediaVault before proceeding with this section.
 
 
 ## Initial networking setup

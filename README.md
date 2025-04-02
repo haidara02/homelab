@@ -1,5 +1,5 @@
 # homelab
-> *(This project is a fork of trentz's homelab, with custom modifications tailored to my specific requirements and hardware setup.)*
+> *(This project is a fork of [trentz's homelab](https://github.com/trentzz/homelab), with custom modifications tailored to my specific requirements and hardware setup.)*
 
 Homelab Adventure! This is intended as a blog or guide, as well as a way to document this project!
 

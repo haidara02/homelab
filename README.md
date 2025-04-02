@@ -14,12 +14,15 @@ WIP at the moment. Stay tuned!
     - [Docker](#docker)
     - [Jellyfin](#jellyin)
     - [Openmediavault](#openmediavault)
+    - [NGINX Proxy Manager](#nginx-proxy-manager)
   - [Initial networking setup](#initial-networking-setup)
     - [Domain registration](#domain-registration)
     - [Cloudflare](#cloudflare)
     - [Cloudflare tunnel](#cloudflare-tunnel)
   - [Services](#services)
     - [Nextcloud](#nextcloud)
+
+---
 
 ## Server hardware, VMs and NAS
 
@@ -48,6 +51,8 @@ In order of priority:
 - 2.5 GbE port for higher bandwidth: only possible PCIe upgrade since motherboard only houses 2 additional PCIe x1 slots (M.2 NVMe adapters are only PCIe x4 and x16, and with x16 M.2 storage is not bootable so the effort isn't worth it)
 - Additional 10 TB HDD storage to enable parity: would need to remove the Blu-Ray reader compartment to house a second 3.5" HDD
 - CPU max-upgrade for current motherboard setup: i7 4770k
+
+---
 
 ### Proxmox
 
@@ -79,6 +84,8 @@ Proxmox is a complete open-source server virtualization management solution. Pro
 
 - [Proxmox Forum Tutorial](https://forum.proxmox.com/threads/proxmox-beginner-tutorial-how-to-set-up-your-first-virtual-machine-on-a-secondary-hard-disk.59559/)
 - [XDA Developeres Proxmox Guide](https://www.xda-developers.com/proxmox-guide/)
+
+---
 
 ### Hard drive storage
 
@@ -189,6 +196,8 @@ zpool destroy tank
 zpool create -f tank raidz1 /dev/sdb /dev/sdc
 ```
 
+---
+
 ### Docker
 
 #### What is Docker? (from AWS)
@@ -270,6 +279,8 @@ While Jellyfin is fairly minimalistic by default, you can significantly enhance 
 - **TheTVDB**: Provides accurate metadata and episode information for TV shows, ensuring that your library remains well-organized with proper details for each series.
   
 - **Trakt**: Syncs your Jellyfin library with your **Trakt** account, allowing you to track watched content across platforms, manage watchlists, and discover new shows.
+
+---
 
 ### NGINX Proxy Manager
 

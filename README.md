@@ -88,7 +88,7 @@ Now that Proxmox is set up, we can configure the storage for our NAS. In my setu
 
 #### Setting Up a Single-Disk Array on Proxmox VE
 
-##### 1. Identify Your Disks
+**1. Identify Your Disks**
 
 Before proceeding, determine the device names of your drives:
 

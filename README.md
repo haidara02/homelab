@@ -1,5 +1,6 @@
 # homelab
-> *(This project was forked from trentz's [homelab](https://github.com/trentzz/homelab), with modifications to my personal needs and available hardware)*
+> *(This project is a fork of trentz's homelab, with custom modifications tailored to my specific requirements and hardware setup.)*
+
 Homelab Adventure! This is intended as a blog or guide, as well as a way to document this project!
 
 If you would like to follow this as a guide, it's structured more or less in the order of what you should do first, but feel free to skip around to the sections you're most interested in.

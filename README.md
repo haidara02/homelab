@@ -58,14 +58,19 @@ Proxmox is a complete open-source server virtualization management solution. Pro
 #### Quick setup guide by Khoi
 
 **Requirements**
+
 - A secondary device for downloading necessary files
 - An empty USB drive (at least 4 GB)
 - A target device for Proxmox installation with an unpartitioned boot drive
+
 **Preparation on a Separate Computer**
+
 1. Download the latest stable ISO from [Proxmox](https://www.proxmox.com/en/downloads)
 2. Download [Rufus](https://rufus.ie/en/)
 3. Launch Rufus and create a bootable USB drive, selecting the Proxmox ISO as the boot selection.
+
 **Installation on the Target Computer**
+
 1. Access BIOS – Restart the target device and enter the BIOS/UEFI menu. Set the boot priority to USB and boot from the installation media.
 2. Install Proxmox – Follow the on-screen setup instructions. Be sure to record all configuration details for future reference.
 3. (Optional) Disable Subscription Warning – After installation, navigate to Datacenter > {Device Name} > Updates > Repositories and add a non-subscription repository to remove the startup subscription prompt.

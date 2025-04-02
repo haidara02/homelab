@@ -234,6 +234,7 @@ docker restart portainer
 > I primarily followed the [tutorial by What's New Andrew](https://www.youtube.com/watch?v=Bce7VT3kJ4g), with the exception of the RAID configuration. If you prefer a visual, step-by-step guide, I recommend checking out his tutorial.
 
 **Import the OMV (OpenMediaVault) ISO into Proxmox**
+
 This can be done via the Proxmox Web Interface, but how I did it was through the command line. Navigate to
 ```bash
 /var/lib/vz/template/iso/
@@ -245,12 +246,21 @@ wget https://sourceforge.net/projects/openmediavault/files/iso/7.4.17/openmediav
 You can then verify that the ISO is in Proxmox by navigating back to the Content tab in the Proxmox web interface under your storage.
 
 **Create OMV Virtual Machine**
+
 To create a new virtual machine (VM), click the Create VM button located in the top right corner of the Proxmox web interface. Below are the relevant configuration details I used for my setup (only the OMV specific settings are included):
-- **General**: Start at boot enabled
-- **OS**: ISO image > openmediavault_7.4.17-amd64.iso
-- **Disks**: Bus/Device> SATA | Size > 16 GB
-- **Cores**: 2
-- **Memory**: 4 GB
+
+**General**
+Start at boot enabled
+
+**OS**
+ISO image: openmediavault_7.4.17-amd64.iso
+
+**Disks**
+Bus/Device: SAT
+Size: 16 GB
+
+**Cores**: 2
+**Memory**: 4 GB
 
 **Harddrive passthrough**
 

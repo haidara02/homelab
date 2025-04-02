@@ -28,18 +28,18 @@ WIP at the moment. Stay tuned!
 
 ### Hardware
 
-- CPU: [Intel Core i5-4590](https://www.intel.com/content/www/us/en/products/sku/80815/intel-core-i54590-processor-6m-cache-up-to-3-70-ghz/specifications.html)
-- Motherboard: [Asus H81M-A Micro ATX LGA1150](https://www.asus.com/us/supportonly/h81m-a/helpdesk_knowledge/)
-- Memory: 16 GB (2 x 8 GB) DDR3-1600 CL10
-- Storage: Patriot P210 256 GB SSD (Boot and LVM Drive) | Seagate Ironwolf 10 TB NAS SATA HDD
-- Case: OEM Micro-ATX case ([specs](https://phoenixtechnologies.es/en/products/caja-de-ordenador-phoenix-micro-atx-lite-s1-formato-slim-con-usb-3-0-fuente-300w-incluida))
+- **CPU**: [Intel Core i5-4590](https://www.intel.com/content/www/us/en/products/sku/80815/intel-core-i54590-processor-6m-cache-up-to-3-70-ghz/specifications.html)
+- **Motherboard**: [Asus H81M-A Micro ATX LGA1150](https://www.asus.com/us/supportonly/h81m-a/helpdesk_knowledge/)
+- **Memory**: 16 GB (2 x 8 GB) DDR3-1600 CL10
+- **Storage**: Patriot P210 256 GB SSD (Boot and LVM Drive) | Seagate Ironwolf 10 TB NAS SATA HDD
+- **Case**: OEM Micro-ATX case ([specs](https://phoenixtechnologies.es/en/products/caja-de-ordenador-phoenix-micro-atx-lite-s1-formato-slim-con-usb-3-0-fuente-300w-incluida))
 
 > This build is designed to be power-efficient and extremely budget-friendly while delivering solid performance for general server-related tasks.
 
 **Estimated power usage:**
-- Light Use: ~40W–80W
-- Moderate Workloads: ~100W–150W
-- Full Load: ~170W–200W
+- **Light Use**: ~40W–80W
+- **Moderate Workloads**: ~100W–150W
+- **Full Load**: ~170W–200W
   
 Most of these components, other than storage, were picked up for $10 AUD at a yard sale.  I specifically chose this setup because the CPU supports [Intel Quick Sync](https://en.wikipedia.org/wiki/Intel_Quick_Sync_Video), which is a dedicated hardware encoder/decoder that speeds up transcoding significantly.
 The SSD comes from my modded PS3, while the hard drive was an absolute steal from eBay at $125 due to a pricing error.
@@ -47,10 +47,10 @@ The SSD comes from my modded PS3, while the hard drive was an absolute steal fro
 #### Considerable Hardware Upgrades and Extra Notes
 
 In order of priority:
-- Upgrade stock cooler for better performance on multi-threaded workloads (plus server would operate with less noise): would have to be a low-profile cooler that is less than 55 mm in height, due to the tight clearance of the Micro-ATX case.
-- 2.5 GbE port for higher bandwidth: only possible PCIe upgrade since motherboard only houses 2 additional PCIe x1 slots (M.2 NVMe adapters are only PCIe x4 and x16, and with x16 M.2 storage is not bootable so the effort isn't worth it)
-- Additional 10 TB HDD storage to enable parity: would need to remove the Blu-Ray reader compartment to house a second 3.5" HDD
-- CPU max-upgrade for current motherboard setup: i7 4770k
+- **Upgrade stock cooler for better performance on multi-threaded workloads** (plus server would operate with less noise): would have to be a low-profile cooler that is less than 55 mm in height, due to the tight clearance of the Micro-ATX case.
+- **2.5 GbE port for higher bandwidth**: only possible PCIe upgrade since motherboard only houses 2 additional PCIe x1 slots (M.2 NVMe adapters are only PCIe x4 and x16, and with x16 M.2 storage is not bootable so the effort isn't worth it)
+- **Additional 10 TB HDD storage to enable parity**: would need to remove the Blu-Ray reader compartment to house a second 3.5" HDD
+- **CPU max-upgrade for current motherboard setup**: i7 4770k
 
 ---
 
@@ -76,9 +76,9 @@ Proxmox is a complete open-source server virtualization management solution. Pro
 
 **Installation on the Target Computer**
 
-1. Access BIOS – Restart the target device and enter the BIOS/UEFI menu. Set the boot priority to USB and boot from the installation media.
-2. Install Proxmox – Follow the on-screen setup instructions. Be sure to record all configuration details for future reference.
-3. (Optional) Disable Subscription Warning – After installation, navigate to Datacenter > {Device Name} > Updates > Repositories and add a non-subscription repository to remove the startup subscription prompt.
+1. **Access BIOS**: Restart the target device and enter the BIOS/UEFI menu. Set the boot priority to USB and boot from the installation media.
+2. **Install Proxmox**: Follow the on-screen setup instructions. Be sure to record all configuration details for future reference.
+3. **Disable Subscription Warning**: After installation, navigate to Datacenter > {Device Name} > Updates > Repositories and add a non-subscription repository to remove the startup subscription prompt.
 
 #### More resources
 
@@ -212,11 +212,11 @@ While Proxmox can manage both virtual machines (VMs) and containers, Docker is o
 
 To streamline the setup process, I used [Tteck's Proxmox VE Helper-Scripts](https://tteck.github.io/Proxmox/#docker---kubernetes) to install the LXC (Linux Container) to host Docker. The LXC configuration are as follows:
 
-- CPU: 2 cores
-- RAM: 2 GB
-- Root Disk: 10 GB
-- Operating System: Debian 12
-- Installed Software: Portainer and Docker Compose
+- **CPU**: 2 cores
+- **RAM**: 2 GB
+- **Root Disk**: 10 GB
+- **Operating System**: Debian 12
+- **Installed Software**: Portainer and Docker Compose
 
 Once the container is set up, Docker and Portainer should be accessible via an IP address on your network. This IP may be automatically assigned or manually configured, depending on your setup. To find the assigned IP address, access Docker’s shell and run the following command:
 ```bash
@@ -238,10 +238,10 @@ I needed a reliable platform to stream my media collection with accurate metadat
 #### My Jellyfin Setup
 
 I used [Tteck's Proxmox VE Helper-Scripts](https://tteck.github.io/Proxmox/) to install the LXC (Linux Container) to host Jellyfin. While Docker was an option, I opted for LXC due to its advantages in resource efficiency. The LXC configuration are as follows:
-- CPU: 2 cores
-- RAM: 2 GB
-- Root Disk: 8 GB
-- Operating System: Debian 12
+- **CPU**: 2 cores
+- **RAM**: 2 GB
+- **Root Disk**: 8 GB
+- **Operating System**: Debian 12
 
 Once the container is set up, Jellyfin should be accessible via an IP address on your network. This IP may be automatically assigned or manually configured, depending on your setup. To find the assigned IP address, access Docker’s shell and run the following command:
 ```bash

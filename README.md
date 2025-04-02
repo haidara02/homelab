@@ -256,7 +256,7 @@ To create a new virtual machine (VM), click the Create VM button located in the 
     - ISO image: openmediavault_7.4.17-amd64.iso
 
 - **Disks**
-    - Bus/Device: SAT
+    - Bus/Device: SATA
     - Size: 16 GB
 
 - **Cores**: 2

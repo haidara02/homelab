@@ -249,19 +249,13 @@ You can then verify that the ISO is in Proxmox by navigating back to the Content
 
 To create a new virtual machine (VM), click the Create VM button located in the top right corner of the Proxmox web interface. Below are the relevant configuration details I used for my setup (only the OMV specific settings are included):
 
-- **General**
-    - Start at boot enabled
-
-- **OS**
-    - ISO image: openmediavault_7.4.17-amd64.iso
-
-- **Disks**
-    - Bus/Device: SATA
-    - Size: 16 GB
-
-- **Cores**: 2
-
-- **Memory**: 4 GB
+| Tab      | Setting |
+| ----------- | ----------- |
+| General      | Start at boot enabled       |
+| OS   | ISO image: openmediavault_7.4.17-amd64.iso        |
+| Disks      | Bus/Device: SATA &#124; Size: 16 GB       |
+| Cores  | 2         |
+| Memory      | 4096 MB       |
 
 #### Harddrive passthrough
 

@@ -324,9 +324,10 @@ wget -O - https://github.com/OpenMediaVault-Plugin-Developers/packages/raw/maste
 
 Once the shared folder is created, you can now make it accessible over the network using one or more of the following protocols, depending on your environment and use case:
 
-- NFS – Ideal for Linux-based systems and hypervisors like Proxmox.
-
-- SMB (CIFS) – Commonly used for Windows-based file sharing.
+| Protocol     | Use Case |
+| ----------- | ----------- |
+| **NFS**     | Ideal for Linux-based systems and hypervisors like Proxmox.       |
+| **SMB (CIFS)**  | Commonly used for Windows-based file sharing.        |
 
 **NFS**
 
@@ -334,9 +335,10 @@ Once the shared folder is created, you can now make it accessible over the netwo
 
 2. NFS options configuration:
 
-  - Client: Specify an IP address or subnet allowed to access the share (e.g., 192.168.1.0/24). I used my Proxmox IP as the drive will be mounted from there.
-
-  - Options: Adjust permissions such as read/write and root access as needed. I went with ```rw,sync,no_subtree_check,crossmnt,no_root_squash``` for full permissions.
+| Setting     | Notes |
+| ----------- | ----------- |
+| **Client**     | Specify an IP address or subnet allowed to access the share (e.g., 192.168.1.0/24). I used my Proxmox IP as the drive will be mounted from there.       |
+| **Options**  | Adjust permissions such as read/write and root access as needed. I went with ```rw,sync,no_subtree_check,crossmnt,no_root_squash``` for full permissions.        |
 
 3. Next, to mount the shared folder on your Proxmox server and ensure it is automatically mounted on startup, edit the /etc/fstab file to include an entry for the NFS share. For example:
 ```bash
@@ -354,11 +356,11 @@ Once the NFS share is mounted on your Proxmox server, you can modify the LXC con
 
 3. SMB configuration:
 
-  - Shared folder: Choose the shared folder created earlier.
-
-  - Public: Choose whether the share is accessible without authentication.
-
-  - Permissions: Set the appropriate access control for users and groups.
+| Setting     | Notes |
+| ----------- | ----------- |
+| **Shared folder**     | Choose the shared folder created earlier       |
+| **Public**  | Choose whether the share is accessible without authentication.        |
+| **Permissions**  | Set the appropriate access control for users and groups.        |
 
 4. Once SMB is enabled and configured, the OpenMediaVault server should automatically appear under the Network section in Windows File Explorer — as long as your Windows machine is on the same local network.
 

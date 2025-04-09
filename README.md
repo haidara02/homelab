@@ -22,6 +22,7 @@ WIP at the moment. Stay tuned!
     - [NGINX Proxy Manager](#nginx-proxy-manager)
     - [Nextcloud](#nextcloud)
   - [Troubleshooting](#troubleshooting)
+    - [Privileged vs Unprivileged](#Privileged-vs-Unprivileged)
 
 ---
 
@@ -221,6 +222,7 @@ To streamline the setup process, I used [Tteck's Proxmox VE Helper-Scripts](http
 | **RAM**   | 2 GB        |
 | **Root Disk**     | 10 GB       |
 | **Operating System**  | Debian 12         |
+| **Unprivileged** | Yes [see why](#Privileged-vs-Unprivileged) |
 | **Installed Software**      | Portainer and Docker Compose       |
 
 Once the container is set up, Docker and Portainer should be accessible via an IP address on your network. This IP may be automatically assigned or manually configured, depending on your setup. To find the assigned IP address, access Docker’s shell and run the following command:
@@ -399,6 +401,7 @@ I used [Tteck's Proxmox VE Helper-Scripts](https://tteck.github.io/Proxmox/) to 
 | **RAM**   | 2 GB        |
 | **Root Disk**     | 8 GB       |
 | **Operating System**  | Debian 12         |
+| **Unprivileged** | Yes [see why](#Privileged-vs-Unprivileged) |
 
 Once the container is set up, Jellyfin should be accessible via an IP address on your network. This IP may be automatically assigned or manually configured, depending on your setup. To find the assigned IP address, access Docker’s shell and run the following command:
 ```bash
@@ -496,7 +499,7 @@ lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,creat
 
 ## Troubleshooting
 
-### Priviledged vs Unpriveledged LXC Containers
+### Privileged vs Unprivileged
 
 When configuring LXC containers, especially for tasks like mounting NFS shares or enabling hardware access, it’s important to understand the distinction between privileged and unprivileged containers:
 

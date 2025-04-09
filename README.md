@@ -516,3 +516,14 @@ In the end, as a temporary solution, I resorted to running the following command
 ```bash
 chmod -R 777 /path/to/shared/directory
 ```
+
+[One solution](https://marcin-lis.pl/docker-in-unprivileged-container-arch-based-in-proxmox) I came across to resolve the permission issues in unprivileged containers involved user and group ID (UID/GID) mapping. While I'm not entirely sure if this contributed to the functioning of the server, it’s a recommended practice for unprivileged containers when dealing with permission and access issues.
+
+Before opting to use NFS, I initially implemented [an SMB solution from Proxmox forums](https://forum.proxmox.com/threads/jellyfin-as-an-lxc-containers-cant-see-subdirectories.143741/) for sharing the directory with my Proxmox container. This solution worked well for my setup, but I wanted to use NFS as a challenge to explore its advantages.
+
+### Other & Bookmarks
+
+[**Recommendation on not torrenting directly to a ZFS pool**](https://www.reddit.com/r/docker/comments/18e38rp/comment/kcm8pfd/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
+- it's not recommended to directly mount a TrueNAS NFS share to a qBittorrent Docker container due to potential issues with ZFS health.
+- should mount the NFS share to your Docker host (the server where you run docker-compose from).
+- map the mounted share folder to the Docker container using the volumes directive in your docker-compose.yml file.

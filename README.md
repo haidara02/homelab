@@ -212,11 +212,13 @@ While Proxmox can manage both virtual machines (VMs) and containers, Docker is o
 
 To streamline the setup process, I used [Tteck's Proxmox VE Helper-Scripts](https://tteck.github.io/Proxmox/#docker---kubernetes) to install the LXC (Linux Container) to host Docker. The LXC configuration are as follows:
 
-- **CPU**: 2 cores
-- **RAM**: 2 GB
-- **Root Disk**: 10 GB
-- **Operating System**: Debian 12
-- **Installed Software**: Portainer and Docker Compose
+| Component     | Setting |
+| ----------- | ----------- |
+| CPU      | 2 cores       |
+| RAM   | 2 GB        |
+| Root Disk     | 10 GB       |
+| Operating System  | Debian 12         |
+| Installed Software      | Portainer and Docker Compose       |
 
 Once the container is set up, Docker and Portainer should be accessible via an IP address on your network. This IP may be automatically assigned or manually configured, depending on your setup. To find the assigned IP address, access Docker’s shell and run the following command:
 ```bash

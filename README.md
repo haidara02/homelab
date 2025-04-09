@@ -368,6 +368,16 @@ Once the NFS share is mounted on your Proxmox server, you can modify the LXC con
 
 ---
 
+## Initial networking setup
+
+### Domain registration
+
+### Cloudflare
+
+### Cloudflare tunnel
+
+## Services
+
 ### Jellyfin
 
 #### What is Jellyfin and Why use it?
@@ -432,16 +442,6 @@ Since I’m running OpenMediaVault as an VM on Proxmox for my NAS solution, the 
 ### NGINX Proxy Manager
 
 ---
-
-## Initial networking setup
-
-### Domain registration
-
-### Cloudflare
-
-### Cloudflare tunnel
-
-## Services
 
 ### Nextcloud
 

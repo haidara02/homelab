@@ -500,44 +500,9 @@ lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,creat
 
 When configuring LXC containers, especially for tasks like mounting NFS shares or enabling hardware access, it’s important to understand the distinction between privileged and unprivileged containers:
 
-| Priviledged    | Unprivileged |
-| ----------- | ----------- |
-| Definition: A privileged container runs with root privileges on the host, meaning it has access to all resources on the host system. It behaves more like a traditional virtual machine.      | Definition: An unprivileged container runs with limited permissions and does not have direct access to the host’s root filesystem. This means it operates in a sandboxed environment with more restricted access to system resources.       |
-| - Easier to configure, as it does not have the restrictions that come with unprivileged containers.
-- Less likely to run into permission issues, making it ideal for certain configurations like hardware passthrough or complex system setups.  | - Increased security: Unprivileged containers provide a more secure environment, as they cannot directly interfere with the host system’s critical resources.
-- Ideal for environments where security is a primary concern, such as hosting multiple user-facing services or when using containers in public-facing environments.       |
-|Reduced security: Since the container has root access to the host system, any security vulnerability within the container could potentially affect the host.
+| **Container Type**       | **Privileged Containers**                                                                                   | **Unprivileged Containers**                                                                               |
+|--------------------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| **Definition**            | Runs with root privileges, has full access to host resources, behaves like a traditional VM.                 | Runs with limited permissions, operates in a sandboxed environment with restricted access.                |
+| **Pros**                  | - Easier to configure<br>- Less likely to run into permission issues<br>- Ideal for hardware passthrough     | - Increased security<br>- Ideal for secure environments<br>- Safer for public-facing services             |
+| **Cons**                  | - Reduced security<br>- Potential security risks for the host<br>- Not recommended in production environments | - Permissions issues<br>- Challenges with device mounts or hardware access<br>- Requires additional config |
 
-It should be used with caution, especially in production environments, as it poses a higher risk to the host’s integrity.     | Permissions issues: Since the container is restricted, there may be challenges with mounting external devices or shares, accessing specific hardware, or running certain processes without additional configuration.
-
-You may need to adjust file and directory ownership, group permissions, or container configurations to grant the container the necessary access.       |
-
-Privileged Containers
-Definition: A privileged container runs with root privileges on the host, meaning it has access to all resources on the host system. It behaves more like a traditional virtual machine.
-
-Pros:
-
-Easier to configure, as it does not have the restrictions that come with unprivileged containers.
-
-Less likely to run into permission issues, making it ideal for certain configurations like hardware passthrough or complex system setups.
-
-Cons:
-
-Reduced security: Since the container has root access to the host system, any security vulnerability within the container could potentially affect the host.
-
-It should be used with caution, especially in production environments, as it poses a higher risk to the host’s integrity.
-
-Unprivileged Containers
-Definition: An unprivileged container runs with limited permissions and does not have direct access to the host’s root filesystem. This means it operates in a sandboxed environment with more restricted access to system resources.
-
-Pros:
-
-Increased security: Unprivileged containers provide a more secure environment, as they cannot directly interfere with the host system’s critical resources.
-
-Ideal for environments where security is a primary concern, such as hosting multiple user-facing services or when using containers in public-facing environments.
-
-Cons:
-
-Permissions issues: Since the container is restricted, there may be challenges with mounting external devices or shares, accessing specific hardware, or running certain processes without additional configuration.
-
-You may need to adjust file and directory ownership, group permissions, or container configurations to grant the container the necessary access.

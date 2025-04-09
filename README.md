@@ -21,6 +21,7 @@ WIP at the moment. Stay tuned!
     - [Jellyfin](#jellyfin)
     - [NGINX Proxy Manager](#nginx-proxy-manager)
     - [Nextcloud](#nextcloud)
+  - [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -346,6 +347,8 @@ Once the shared folder is created, you can now make it accessible over the netwo
 ```
 5. To mount the share immediately, run ```mount -a``` to mount. Run ```systemctl daemon-reload``` if prompted.
 
+6. See
+
 Once the NFS share is mounted on your Proxmox server, you can modify the LXC configuration files to mount the shared folder within your Proxmox containers.
 
 **SMB/CIFS (Windows File Sharing)**
@@ -362,7 +365,7 @@ Once the NFS share is mounted on your Proxmox server, you can modify the LXC con
 | **Public**  | Choose whether the share is accessible without authentication.        |
 | **Permissions**  | Set the appropriate access control for users and groups.        |
 
-4. Once SMB is enabled and configured, the OpenMediaVault server should automatically appear under the Network section in Windows File Explorer — as long as your Windows machine is on the same local network.
+4. Once SMB is enabled and configured, the OpenMediaVault server should automatically appear under the Network section in Windows File Explorer — as long as your Windows machine is on the same local network. Simply log in with the details you created in Step 1.
 
 5. If it does not appear automatically, you can try to manually access the share by entering the OMV server’s IP address into the File Explorer address bar using the following format ```\\<OMV-IP-ADDRESS>\```
 
@@ -491,3 +494,50 @@ lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,creat
 
 ### Nextcloud
 
+## Troubleshooting
+
+### Priviledged vs Unpriveledged LXC Containers
+
+When configuring LXC containers, especially for tasks like mounting NFS shares or enabling hardware access, it’s important to understand the distinction between privileged and unprivileged containers:
+
+| Priviledged    | Unprivileged |
+| ----------- | ----------- |
+| Definition: A privileged container runs with root privileges on the host, meaning it has access to all resources on the host system. It behaves more like a traditional virtual machine.      | Definition: An unprivileged container runs with limited permissions and does not have direct access to the host’s root filesystem. This means it operates in a sandboxed environment with more restricted access to system resources.       |
+| - Easier to configure, as it does not have the restrictions that come with unprivileged containers.
+- Less likely to run into permission issues, making it ideal for certain configurations like hardware passthrough or complex system setups.  | - Increased security: Unprivileged containers provide a more secure environment, as they cannot directly interfere with the host system’s critical resources.
+- Ideal for environments where security is a primary concern, such as hosting multiple user-facing services or when using containers in public-facing environments.       |
+|Reduced security: Since the container has root access to the host system, any security vulnerability within the container could potentially affect the host.
+
+It should be used with caution, especially in production environments, as it poses a higher risk to the host’s integrity.     | Permissions issues: Since the container is restricted, there may be challenges with mounting external devices or shares, accessing specific hardware, or running certain processes without additional configuration.
+
+You may need to adjust file and directory ownership, group permissions, or container configurations to grant the container the necessary access.       |
+
+Privileged Containers
+Definition: A privileged container runs with root privileges on the host, meaning it has access to all resources on the host system. It behaves more like a traditional virtual machine.
+
+Pros:
+
+Easier to configure, as it does not have the restrictions that come with unprivileged containers.
+
+Less likely to run into permission issues, making it ideal for certain configurations like hardware passthrough or complex system setups.
+
+Cons:
+
+Reduced security: Since the container has root access to the host system, any security vulnerability within the container could potentially affect the host.
+
+It should be used with caution, especially in production environments, as it poses a higher risk to the host’s integrity.
+
+Unprivileged Containers
+Definition: An unprivileged container runs with limited permissions and does not have direct access to the host’s root filesystem. This means it operates in a sandboxed environment with more restricted access to system resources.
+
+Pros:
+
+Increased security: Unprivileged containers provide a more secure environment, as they cannot directly interfere with the host system’s critical resources.
+
+Ideal for environments where security is a primary concern, such as hosting multiple user-facing services or when using containers in public-facing environments.
+
+Cons:
+
+Permissions issues: Since the container is restricted, there may be challenges with mounting external devices or shares, accessing specific hardware, or running certain processes without additional configuration.
+
+You may need to adjust file and directory ownership, group permissions, or container configurations to grant the container the necessary access.

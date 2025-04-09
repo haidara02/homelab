@@ -18,7 +18,7 @@ WIP at the moment. Stay tuned!
     - [Cloudflare](#cloudflare)
     - [Cloudflare tunnel](#cloudflare-tunnel)
   - [Services](#services)
-    - [Jellyfin](#jellyin)
+    - [Jellyfin](#jellyfin)
     - [NGINX Proxy Manager](#nginx-proxy-manager)
     - [Nextcloud](#nextcloud)
 

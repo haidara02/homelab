@@ -28,6 +28,7 @@ WIP at the moment. Stay tuned!
 
 ### Hardware
 
+<center>
 | Component      | Details |
 | ----------- | ----------- |
 | **CPU**      | [Intel Core i5-4590](https://www.intel.com/content/www/us/en/products/sku/80815/intel-core-i54590-processor-6m-cache-up-to-3-70-ghz/specifications.html)       |
@@ -35,6 +36,7 @@ WIP at the moment. Stay tuned!
 | **Memory**      | 16 GB (2 x 8 GB) DDR3-1600 CL10       |
 | **Storage**  | Patriot P210 256 GB SSD (Boot and LVM Drive) <br>Seagate Ironwolf 10 TB NAS SATA HDD         |
 | **Case**      | OEM Micro-ATX case ([specs](https://phoenixtechnologies.es/en/products/caja-de-ordenador-phoenix-micro-atx-lite-s1-formato-slim-con-usb-3-0-fuente-300w-incluida))       |
+</center>
 
 > This build is designed to be power-efficient and extremely budget-friendly while delivering solid performance for general server-related tasks.
 
@@ -214,13 +216,15 @@ While Proxmox can manage both virtual machines (VMs) and containers, Docker is o
 
 To streamline the setup process, I used [Tteck's Proxmox VE Helper-Scripts](https://tteck.github.io/Proxmox/#docker---kubernetes) to install the LXC (Linux Container) to host Docker. The LXC configuration are as follows:
 
+<centre>
 | Component     | Setting |
 | ----------- | ----------- |
-| CPU      | 2 cores       |
-| RAM   | 2 GB        |
-| Root Disk     | 10 GB       |
-| Operating System  | Debian 12         |
-| Installed Software      | Portainer and Docker Compose       |
+| **CPU**      | 2 cores       |
+| **RAM**   | 2 GB        |
+| **Root Disk**     | 10 GB       |
+| **Operating System**  | Debian 12         |
+| **Installed Software**      | Portainer and Docker Compose       |
+</centre>
 
 Once the container is set up, Docker and Portainer should be accessible via an IP address on your network. This IP may be automatically assigned or manually configured, depending on your setup. To find the assigned IP address, access Docker’s shell and run the following command:
 ```bash
@@ -253,13 +257,15 @@ You can then verify that the ISO is in Proxmox by navigating back to the Content
 
 To create a new virtual machine (VM), click the Create VM button located in the top right corner of the Proxmox web interface. Below are the relevant configuration details I used for my setup (only the OMV specific settings are included):
 
+<centre>
 | Tab      | Setting |
 | ----------- | ----------- |
-| General      | Start at boot enabled       |
-| OS   | ISO image: openmediavault_7.4.17-amd64.iso        |
-| Disks      | Bus/Device: SATA &#124; Size: 16 GB       |
-| Cores  | 2         |
-| Memory      | 4096 MB       |
+| **General**      | Start at boot enabled       |
+| **OS**   | ISO image: openmediavault_7.4.17-amd64.iso        |
+| **Disks**      | Bus/Device: SATA <br>Size: 16 GB       |
+| **Cores**  | 2         |
+| **Memory**      | 4096 MB       |
+</centre>
 
 #### Harddrive passthrough
 

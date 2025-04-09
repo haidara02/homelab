@@ -440,6 +440,49 @@ If your drive with the media is already mounted, simply navigate to Dashboard > 
 
 Since I’m running OpenMediaVault as an VM on Proxmox for my NAS solution, the configuration process can be quite complex. Therefore, it's essential to properly set up OpenMediaVault before proceeding with this section.
 
+Shutdown the Jellyfin container before making any changes. Then navigate  to the configuration file for your Jellyfin container at: 
+
+```/etc/pve/lxc/XXX.conf```
+
+Add the following line to mount the NFS share in your container, replacing the placeholders with your respective paths
+
+```mp0: <where you mounted OMV on Proxmox>,mp=<where to mount in container>```
+
+For example, my configuration is as follows:
+
+```bash
+arch: amd64
+cores: 2
+features: keyctl=1,nesting=1
+hostname: jellyfin
+memory: 2048
+mp0: /mnt/tompson,mp=/mnt/tompson
+net0: name=eth0,bridge=vmbr0,hwaddr=BC:24:11:88:9A:1C,ip=dhcp,type=veth
+onboot: 1
+ostype: debian
+rootfs: local-lvm:vm-101-disk-0,size=8G
+swap: 512
+tags: proxmox-helper-scripts
+unprivileged: 1
+lxc.cgroup2.devices.allow: a
+lxc.cap.drop: 
+lxc.cgroup2.devices.allow: c 188:* rwm
+lxc.cgroup2.devices.allow: c 189:* rwm
+lxc.mount.entry: /dev/serial/by-id  dev/serial/by-id  none bind,optional,create=dir
+lxc.mount.entry: /dev/ttyUSB0       dev/ttyUSB0       none bind,optional,create=file
+lxc.mount.entry: /dev/ttyUSB1       dev/ttyUSB1       none bind,optional,create=file
+lxc.mount.entry: /dev/ttyACM0       dev/ttyACM0       none bind,optional,create=file
+lxc.mount.entry: /dev/ttyACM1       dev/ttyACM1       none bind,optional,create=file
+lxc.cgroup2.devices.allow: c 226:0 rwm
+lxc.cgroup2.devices.allow: c 226:128 rwm
+lxc.cgroup2.devices.allow: c 29:0 rwm
+lxc.mount.entry: /dev/fb0 dev/fb0 none bind,optional,create=file
+lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir
+lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,create=file
+```
+
+> Note: I loosely followed [WunderTech's Jellyfin Guide](https://youtu.be/gHBSrENzeqk?t=400) to enable hardware transcoding. As I do not have a dedicated GPU for the server, some of the entries in the configuration file may be redundant, but I plan to review and optimize these at a later time.
+
 ---
 
 ### NGINX Proxy Manager

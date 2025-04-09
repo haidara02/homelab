@@ -506,3 +506,13 @@ When configuring LXC containers, especially for tasks like mounting NFS shares o
 | **Pros**                  | - Easier to configure<br>- Less likely to run into permission issues<br>- Ideal for hardware passthrough     | - Increased security<br>- Ideal for secure environments<br>- Safer for public-facing services             |
 | **Cons**                  | - Reduced security<br>- Potential security risks for the host<br>- Not recommended in production environments | - Permissions issues<br>- Challenges with device mounts or hardware access<br>- Requires additional config |
 
+Many forums recommend using unprivileged containers for better security as they provide a more isolated environment, preventing the container from having unrestricted access to the host’s root filesystem. However, there are some drawbacks to this approach:
+
+- **NFS Issues:** Unprivileged containers can’t easily mount NFS shares due to permission restrictions. Even after successfully mounting, it may be challenging to get full access within the container.
+
+- **Permissions Problems:** A common issue when using unprivileged containers with mounted NFS shares is difficulty with read/write access. In some cases, the container might not be able to write to the mounted directory.
+
+In the end, as a temporary solution, I resorted to running the following command to grant full read/write permissions:
+```bash
+chmod -R 777 /path/to/shared/directory
+```

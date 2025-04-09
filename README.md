@@ -324,13 +324,17 @@ wget -O - https://github.com/OpenMediaVault-Plugin-Developers/packages/raw/maste
 
 4. Navigate to Storage > Shared Folders. Click the Create (+) button to add a new shared folder and customize the folder settings according to your preferences.
 
-Once that's done you can now share that folder using the following protocols
+Once the shared folder is created, you can now make it accessible over the network using one or more of the following protocols, depending on your environment and use case:
+
+- NFS – Ideal for Linux-based systems and hypervisors like Proxmox.
+
+- SMB (CIFS) – Commonly used for Windows-based file sharing.
 
 **NFS**
 
 1. Go to Services > NFS > Settings and enable the service. Then, under Services > NFS > Shares, click Create (+).
 
-NFS options configuration:
+2. NFS options configuration:
 
 - Client: Specify an IP address or subnet allowed to access the share (e.g., 192.168.1.0/24). I used my Proxmox IP as the drive will be mounted from there.
 
@@ -343,7 +347,7 @@ NFS options configuration:
 
 2. Go to Services > SMB/CIFS > Settings and enable the service. Then, under Services > NFS > Shares, click Create (+).
 
-SMB configuration:
+3. SMB configuration:
 
 - Shared folder: Choose the shared folder created earlier.
 
@@ -351,9 +355,9 @@ SMB configuration:
 
 - Permissions: Set the appropriate access control for users and groups.
 
-3. Once SMB is enabled and configured, the OpenMediaVault server should automatically appear under the Network section in Windows File Explorer — as long as your Windows machine is on the same local network.
+4. Once SMB is enabled and configured, the OpenMediaVault server should automatically appear under the Network section in Windows File Explorer — as long as your Windows machine is on the same local network.
 
-4. If it does not appear automatically, you can try to manually access the share by entering the OMV server’s IP address into the File Explorer address bar using the following format ```\\<OMV-IP-ADDRESS>\```
+5. If it does not appear automatically, you can try to manually access the share by entering the OMV server’s IP address into the File Explorer address bar using the following format ```\\<OMV-IP-ADDRESS>\```
 
 ---
 

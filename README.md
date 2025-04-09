@@ -481,7 +481,7 @@ lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir
 lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,create=file
 ```
 
-> Note: I loosely followed [WunderTech's Jellyfin Guide](https://youtu.be/gHBSrENzeqk?t=400) to enable hardware transcoding. As I do not have a dedicated GPU for the server, some of the entries in the configuration file may be redundant, but I plan to review and optimize these at a later time.
+> Note: I loosely followed [WunderTech's Jellyfin Guide](https://youtu.be/gHBSrENzeqk?t=400) (starting at the timestamp linked) to enable hardware transcoding. As I do not have a dedicated GPU for the server, some of the entries in the configuration file may be redundant, but I plan to review and optimize these at a later time.
 
 ---
 

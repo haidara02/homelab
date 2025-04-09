@@ -340,6 +340,13 @@ Once the shared folder is created, you can now make it accessible over the netwo
 
   - Options: Adjust permissions such as read/write and root access as needed. I went with ```rw,sync,no_subtree_check,crossmnt,no_root_squash``` for full permissions.
 
+3. Next, to mount the shared folder on your Proxmox server and ensure it is automatically mounted on startup, edit the /etc/fstab file to include an entry for the NFS share. For example:
+```bash
+192.168.50.XX:/media /mnt/media/ nfs defaults 0 0
+```
+5. To mount the share immediately, run ```mount -a``` to mount. Run ```systemctl daemon-reload``` if prompted.
+
+Once the NFS share is mounted on your Proxmox server, you can modify the LXC configuration files to mount the shared folder within your Proxmox containers.
 
 **SMB/CIFS (Windows File Sharing)**
 

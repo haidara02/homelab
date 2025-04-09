@@ -12,14 +12,14 @@ WIP at the moment. Stay tuned!
     - [Proxmox](#proxmox)
     - [Hardware](#hardware)
     - [Docker](#docker)
-    - [Jellyfin](#jellyin)
     - [Openmediavault](#openmediavault)
-    - [NGINX Proxy Manager](#nginx-proxy-manager)
   - [Initial networking setup](#initial-networking-setup)
     - [Domain registration](#domain-registration)
     - [Cloudflare](#cloudflare)
     - [Cloudflare tunnel](#cloudflare-tunnel)
   - [Services](#services)
+    - [Jellyfin](#jellyin)
+    - [NGINX Proxy Manager](#nginx-proxy-manager)
     - [Nextcloud](#nextcloud)
 
 ---

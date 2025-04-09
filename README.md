@@ -287,6 +287,10 @@ Username: admin
 
 Password: openmediavault
 
+- Navigate to the Update Management section in the OMV web interface. If updates are available, you may choose to install them by clicking Install. You may be prompted after to reboot OMV in order to apply these updates.
+
+#### Enabling ZFS Support in OpenMediaVault
+
 Since OpenMediaVault (OMV) does not include native support for ZFS by default, you will need to install the OMV-Extras plugin, which provides access to additional functionality, including ZFS support.
 
 1. Log in to your OMV web interface.
@@ -305,7 +309,51 @@ wget -O - https://github.com/OpenMediaVault-Plugin-Developers/packages/raw/maste
 
 6. Navigate to System > Plugins, locate and install the ZFS plugin.
 
-#### 
+#### Configuring ZFS and File Sharing
+
+1. In the OMV web interface, navigate to ZFS > Pools. Click on the Tools icon (wrench symbol) and select Import Pool.
+
+2. In the import dialog:
+- Check All Missing Pools.
+- Enable the Force option — this is necessary if the pool was previously used on another system, to avoid errors such as:
+```exit code '1': cannot import 'tank': pool was previously in use from another system.```
+
+3. Once the pool is successfully imported, select it from the list. Click Add to create a new ZFS filesystem. Name the filesystem as desired — call it anything you want. I named it 'shared' and used the default file system settings. After rebooting the VM, the following entries should show up on Storage > File Systems:
+
+![image](https://github.com/user-attachments/assets/abe5de44-0c46-4500-85ce-b19720ed076d)
+
+4. Navigate to Storage > Shared Folders. Click the Create (+) button to add a new shared folder and customize the folder settings according to your preferences.
+
+Once that's done you can now share that folder using the following protocols
+
+**NFS**
+
+1. Go to Services > NFS > Settings and enable the service. Then, under Services > NFS > Shares, click Create (+).
+
+NFS options configuration:
+
+- Client: Specify an IP address or subnet allowed to access the share (e.g., 192.168.1.0/24). I used my Proxmox IP as the drive will be mounted from there.
+
+- Options: Adjust permissions such as read/write and root access as needed. I went with ```rw,sync,no_subtree_check,crossmnt,no_root_squash``` for full permissions.
+
+
+**SMB/CIFS (Windows File Sharing)**
+
+1. In User Management > Users, click Create (+) and customize settings according to your preferences. Just make sure to add 'users' in the group section.
+
+2. Go to Services > SMB/CIFS > Settings and enable the service. Then, under Services > NFS > Shares, click Create (+).
+
+SMB configuration:
+
+- Shared folder: Choose the shared folder created earlier.
+
+- Public: Choose whether the share is accessible without authentication.
+
+- Permissions: Set the appropriate access control for users and groups.
+
+3. Once SMB is enabled and configured, the OpenMediaVault server should automatically appear under the Network section in Windows File Explorer — as long as your Windows machine is on the same local network.
+
+4. If it does not appear automatically, you can try to manually access the share by entering the OMV server’s IP address into the File Explorer address bar using the following format ```\\<OMV-IP-ADDRESS>\```
 
 ---
 

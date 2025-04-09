@@ -28,11 +28,13 @@ WIP at the moment. Stay tuned!
 
 ### Hardware
 
-- **CPU**: [Intel Core i5-4590](https://www.intel.com/content/www/us/en/products/sku/80815/intel-core-i54590-processor-6m-cache-up-to-3-70-ghz/specifications.html)
-- **Motherboard**: [Asus H81M-A Micro ATX LGA1150](https://www.asus.com/us/supportonly/h81m-a/helpdesk_knowledge/)
-- **Memory**: 16 GB (2 x 8 GB) DDR3-1600 CL10
-- **Storage**: Patriot P210 256 GB SSD (Boot and LVM Drive) | Seagate Ironwolf 10 TB NAS SATA HDD
-- **Case**: OEM Micro-ATX case ([specs](https://phoenixtechnologies.es/en/products/caja-de-ordenador-phoenix-micro-atx-lite-s1-formato-slim-con-usb-3-0-fuente-300w-incluida))
+| Component      | Details |
+| ----------- | ----------- |
+| **CPU**      | [Intel Core i5-4590](https://www.intel.com/content/www/us/en/products/sku/80815/intel-core-i54590-processor-6m-cache-up-to-3-70-ghz/specifications.html)       |
+| **Motherboard**   | [Asus H81M-A Micro ATX LGA1150](https://www.asus.com/us/supportonly/h81m-a/helpdesk_knowledge/)        |
+| **Memory**      | 16 GB (2 x 8 GB) DDR3-1600 CL10       |
+| **Storage**  | Patriot P210 256 GB SSD (Boot and LVM Drive) \n Seagate Ironwolf 10 TB NAS SATA HDD         |
+| **Case**      | OEM Micro-ATX case ([specs](https://phoenixtechnologies.es/en/products/caja-de-ordenador-phoenix-micro-atx-lite-s1-formato-slim-con-usb-3-0-fuente-300w-incluida))       |
 
 > This build is designed to be power-efficient and extremely budget-friendly while delivering solid performance for general server-related tasks.
 

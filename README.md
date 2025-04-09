@@ -275,15 +275,37 @@ qm set <VM ID> -sata# /dev/disk/by-partuuid/<Device UUID>
 
 Once completed, the drives will be successfully mounted.
 
-#### OS Setup
+#### OS Walkthrough and Setup
 
 - The installation process is straightforward and intuitive. Ensure that you select the correct partition during installation—specifically, the 16 GB partition in the disk partitioning section.
 
 - After completing the installation and rebooting, OpenMediaVault (OMV) should be accessible via the IP address displayed next to the ens18 interface.
 
 The default login credentials are:
+
 Username: admin
+
 Password: openmediavault
+
+Since OpenMediaVault (OMV) does not include native support for ZFS by default, you will need to install the OMV-Extras plugin, which provides access to additional functionality, including ZFS support.
+
+1. Log in to your OMV web interface.
+
+2. Open the OMV console on Proxmox (or via SSH).
+
+3. Run the following command to install OMV-Extras:
+
+```bash
+wget -O - https://github.com/OpenMediaVault-Plugin-Developers/packages/raw/master/install | bash
+```
+
+4. Once the script completes, return to the OMV web interface.
+
+5. Perform a hard refresh to load the newly available plugins by pressing Ctrl + Shift + R in your browser.
+
+6. Navigate to System > Plugins, locate and install the ZFS plugin.
+
+#### 
 
 ---
 

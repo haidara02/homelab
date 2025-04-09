@@ -222,7 +222,7 @@ To streamline the setup process, I used [Tteck's Proxmox VE Helper-Scripts](http
 | **RAM**   | 2 GB        |
 | **Root Disk**     | 10 GB       |
 | **Operating System**  | Debian 12         |
-| **Unprivileged** | Yes [see why](#Privileged-vs-Unprivileged) |
+| **Unprivileged** | Yes ([see why](#Privileged-vs-Unprivileged)) |
 | **Installed Software**      | Portainer and Docker Compose       |
 
 Once the container is set up, Docker and Portainer should be accessible via an IP address on your network. This IP may be automatically assigned or manually configured, depending on your setup. To find the assigned IP address, access Docker’s shell and run the following command:
@@ -401,7 +401,7 @@ I used [Tteck's Proxmox VE Helper-Scripts](https://tteck.github.io/Proxmox/) to 
 | **RAM**   | 2 GB        |
 | **Root Disk**     | 8 GB       |
 | **Operating System**  | Debian 12         |
-| **Unprivileged** | Yes [see why](#Privileged-vs-Unprivileged) |
+| **Unprivileged** | Yes ([see why](#Privileged-vs-Unprivileged)) |
 
 Once the container is set up, Jellyfin should be accessible via an IP address on your network. This IP may be automatically assigned or manually configured, depending on your setup. To find the assigned IP address, access Docker’s shell and run the following command:
 ```bash
@@ -444,9 +444,9 @@ While Jellyfin is fairly minimalistic by default, you can significantly enhance 
 
 If your drive with the media is already mounted, simply navigate to Dashboard > Libraries and add your media libraries. Wait for the scan to complete, and you'll be able to view your media.
 
-Since I’m running OpenMediaVault as an VM on Proxmox for my NAS solution, the configuration process can be quite complex. Therefore, it's essential to properly set up OpenMediaVault before proceeding with this section.
+Since I’m running OpenMediaVault as a VM on Proxmox for my NAS solution, the configuration process can be quite complex. Therefore, it's essential to set up OpenMediaVault and read through [this troubleshooting section](#Privileged-vs-Unprivileged) properly before proceeding with this section.
 
-Shutdown the Jellyfin container before making any changes. Then navigate  to the configuration file for your Jellyfin container at: 
+Shutdown the Jellyfin container before making any changes. Then, navigate to the configuration file for your Jellyfin container at: 
 
 ```/etc/pve/lxc/XXX.conf```
 

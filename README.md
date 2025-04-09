@@ -231,7 +231,7 @@ docker restart portainer
 
 ### OpenMediaVault
 
-> I primarily followed the [tutorial by What's New Andrew](https://www.youtube.com/watch?v=Bce7VT3kJ4g), with the exception of the RAID configuration. If you prefer a visual, step-by-step guide, I recommend checking out his tutorial.
+> I primarily followed the [tutorial by What's New Andrew](https://www.youtube.com/watch?v=Bce7VT3kJ4g), WITH the exception of the RAID configuration since I already have my ZFS pool setup. If you did NOT setup a zfs pool in Proxmox and prefer a visual, step-by-step guide, I recommend checking out his tutorial.
 
 **Import the OMV (OpenMediaVault) ISO into Proxmox**
 
@@ -263,7 +263,27 @@ To create a new virtual machine (VM), click the Create VM button located in the 
 
 - **Memory**: 4 GB
 
-**Harddrive passthrough**
+#### Harddrive passthrough
+
+1. Ensure that the virtual machine (VM) is powered off before proceeding.
+2. In the Proxmox shell, execute the blkid command to identify the partition UUID for the desired drives. In this case, the partition sbd1 created during the earlier zpool create command was used.
+3. For each drive you wish to mount as a resource on the VM, execute the following command for each drive:
+
+```bash
+qm set <VM ID> -sata# /dev/disk/by-partuuid/<Device UUID>
+```
+
+Once completed, the drives will be successfully mounted.
+
+#### OS Setup
+
+- The installation process is straightforward and intuitive. Ensure that you select the correct partition during installation—specifically, the 16 GB partition in the disk partitioning section.
+
+- After completing the installation and rebooting, OpenMediaVault (OMV) should be accessible via the IP address displayed next to the ens18 interface.
+
+The default login credentials are:
+Username: admin
+Password: openmediavault
 
 ---
 

@@ -218,7 +218,7 @@ While Proxmox can manage both virtual machines (VMs) and containers, Docker is o
 
 To streamline the setup process, I used [Tteck's Proxmox VE Helper-Scripts](https://tteck.github.io/Proxmox/#docker---kubernetes) to install the LXC (Linux Container) to host Docker. The LXC configuration are as follows:
 
-<centre>
+<center>
   
 | Component     | Setting |
 | ----------- | ----------- |
@@ -228,7 +228,7 @@ To streamline the setup process, I used [Tteck's Proxmox VE Helper-Scripts](http
 | **Operating System**  | Debian 12         |
 | **Installed Software**      | Portainer and Docker Compose       |
 
-</centre>
+</center>
 
 Once the container is set up, Docker and Portainer should be accessible via an IP address on your network. This IP may be automatically assigned or manually configured, depending on your setup. To find the assigned IP address, access Docker’s shell and run the following command:
 ```bash
@@ -261,7 +261,7 @@ You can then verify that the ISO is in Proxmox by navigating back to the Content
 
 To create a new virtual machine (VM), click the Create VM button located in the top right corner of the Proxmox web interface. Below are the relevant configuration details I used for my setup (only the OMV specific settings are included):
 
-<centre>
+<center>
   
 | Tab      | Setting |
 | ----------- | ----------- |
@@ -271,7 +271,7 @@ To create a new virtual machine (VM), click the Create VM button located in the 
 | **Cores**  | 2         |
 | **Memory**      | 4096 MB       |
 
-</centre>
+</center>
 
 #### Harddrive passthrough
 
